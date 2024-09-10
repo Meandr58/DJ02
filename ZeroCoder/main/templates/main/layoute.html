@@ -1,0 +1,65 @@
+{% load static %}
+<! doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Подключение Bootstrap через CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключение пользовательского стиля -->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+
+    {% block title %}
+        <title>Денежка</title>
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Включение меню -->
+    {% include 'main/menu.html' %}
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- Боковая панель -->
+            <aside class="col-md-3 text-center">
+                <img src="{% static 'main/img/target.png' %}" alt="Золотая монета" class="img-fluid mb-4">
+                <iframe src="https://www.exdex.ru/moscow/ya_widget/?cataloxy=1" frameborder="0" width="254" height="261" style="overflow:hidden;"></iframe>
+            </aside>
+
+            <!-- Основной контент -->
+            <main class="col-md-9" style="padding-left: 50px;">
+                {% block content %}
+                <!-- Название страницы -->
+                <h1 class="mb-4">{{ page_title }}</h1>
+
+                <!-- Первая картинка -->
+                <div class="mb-4">
+                    <img src="{{ first_image }}" alt="Первая картинка" class="img-fluid">
+                </div>
+
+                <!-- Текстовый блок -->
+                <div class="mb-4">
+                    <p>{{ page_text }}</p>
+                </div>
+
+                <!-- Вторая картинка -->
+                <div class="mb-4">
+                    <img src="{{ second_image }}" alt="Вторая картинка" class="img-fluid">
+                </div>
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    {% include 'main/footer.html' %}
+
+    <!-- Подключение Bootstrap JS и Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
