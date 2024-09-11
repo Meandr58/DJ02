@@ -20,7 +20,7 @@ def cash_on(request):
     return render(request, 'main/cash_on.html')
 def save(request):
     return render(request, 'main/save.html')
-def new(request):
+def home(request):
     return render(request, 'main/new.html')
 def data(request):
     return HttpResponse("<h1>Отсюда можно будет получить доступ к базам данных моего первого проекта на Django</h1>")
